@@ -147,19 +147,19 @@ public class CalendarTest {
         calendar.clearSchedule(2, 32);
     }
 
-    // @Test
-    // public void testPrintAgenda_PrintForMonth() {
-    //     Calendar calendar = new Calendar();
-    //     String agenda = calendar.printAgenda(3);
-    //     assertTrue("Agenda should not be empty", agenda.isEmpty());
-    // }
+    @Test
+    public void testPrintAgenda_PrintForMonth() {
+        Calendar calendar = new Calendar();
+        String agenda = calendar.printAgenda(3);
+        assertTrue("Agenda should not be empty", agenda.isEmpty());
+    }
 
-    // @Test
-    // public void testPrintAgenda_PrintForDay() {
-    //     Calendar calendar = new Calendar();
-    //     String agenda = calendar.printAgenda(3, 20);
-    //     assertTrue("Agenda should not be empty", agenda.isEmpty());
-    // }
+    @Test
+    public void testPrintAgenda_PrintForDay() {
+        Calendar calendar = new Calendar();
+        String agenda = calendar.printAgenda(3, 20);
+        assertTrue("Agenda should not be empty", agenda.isEmpty());
+    }
 
     @Test
     public void testPrintAgenda_PrintForDayWithNoMeetings() {
@@ -168,11 +168,11 @@ public class CalendarTest {
         assertTrue("Agenda should be empty", agenda.equals("Agenda for "+3+"/"+25+":\n"));
     }
 
-    // @Test(expected = TimeConflictException.class)
-    // public void testPrintAgenda_PrintForNonExistentDay() throws TimeConflictException {
-    //     Calendar calendar = new Calendar();
-    //     calendar.printAgenda(3, 32);
-    // }
+    @Test(expected = TimeConflictException.class)
+    public void testPrintAgenda_PrintForNonExistentDay() throws TimeConflictException {
+        Calendar calendar = new Calendar();
+        calendar.printAgenda(3, 32);
+    }
 
     @Test
     public void testGetMeeting_RetrieveExistingMeeting() {
@@ -187,12 +187,12 @@ public class CalendarTest {
         }
     }
 
-    // @Test
-    // public void testGetMeeting_RetrieveFromEmptyDay() {
-    //     Calendar calendar = new Calendar();
-    //     Meeting retrievedMeeting = calendar.getMeeting(3, 20, 0);
-    //     assertEquals(null, retrievedMeeting);
-    // }
+    @Test
+    public void testGetMeeting_RetrieveFromEmptyDay() {
+        Calendar calendar = new Calendar();
+        Meeting retrievedMeeting = calendar.getMeeting(3, 20, 0);
+        assertEquals(null, retrievedMeeting);
+    }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetMeeting_RetrieveWithInvalidIndex() {
@@ -200,11 +200,11 @@ public class CalendarTest {
         calendar.getMeeting(3, 25, 5);
     }
 
-    // @Test(expected = TimeConflictException.class)
-    // public void testGetMeeting_RetrieveFromNonExistentDay() throws TimeConflictException {
-    //     Calendar calendar = new Calendar();
-    //     calendar.getMeeting(2, 30, 0);
-    // }
+    @Test(expected = TimeConflictException.class)
+    public void testGetMeeting_RetrieveFromNonExistentDay() throws TimeConflictException {
+        Calendar calendar = new Calendar();
+        calendar.getMeeting(2, 30, 0);
+    }
 
     @Test
     public void testRemoveMeeting_RemoveExistingMeeting() {
@@ -226,11 +226,11 @@ public class CalendarTest {
         assertTrue("No meetings should be scheduled", calendar.printAgenda(3, 25).equals("Agenda for "+3+"/"+25+":\n"));
     }
 
-    // @Test(expected = TimeConflictException.class)
-    // public void testRemoveMeeting_RemoveFromNonExistentDay() throws TimeConflictException {
-    //     Calendar calendar = new Calendar();
-    //     calendar.removeMeeting(2, 30, 0);
-    // }
+    @Test(expected = TimeConflictException.class)
+    public void testRemoveMeeting_RemoveFromNonExistentDay() throws TimeConflictException {
+        Calendar calendar = new Calendar();
+        calendar.removeMeeting(2, 30, 0);
+    }
 
     @Test
     public void testCheckTimes_ValidDateTime() {
@@ -241,10 +241,10 @@ public class CalendarTest {
         }
     }
 
-    // @Test(expected = TimeConflictException.class)
-    // public void testCheckTimes_InvalidDay() throws TimeConflictException {
-    //     Calendar.checkTimes(2, 30, 10, 11);
-    // }
+    @Test(expected = TimeConflictException.class)
+    public void testCheckTimes_InvalidDay() throws TimeConflictException {
+        Calendar.checkTimes(2, 30, 10, 11);
+    }
 
     @Test(expected = TimeConflictException.class)
     public void testCheckTimes_InvalidTime_Negative() throws TimeConflictException {
